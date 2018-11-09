@@ -1,0 +1,50 @@
+.first {
+  order: -1;
+}
+
+.last {
+  order: 1;
+}
+
+.text--center,
+.text-center {
+  text-align: center;
+}
+
+.medium--text-end {
+  @media #{$medium-up} {
+    text-align: right;
+  }
+}
+
+.align-start {
+  align-self: flex-start;
+}
+
+.align-end {
+  align-self: flex-end;
+}
+
+.align-center {
+  align-self: center;
+}
+
+.align-baseline {
+  align-self: baseline;
+}
+
+.align-stretch {
+  align-self: stretch;
+}
+
+.dash {
+  font-size: 0;
+  &:before {
+    @include rem(19, 'width');
+    @include rem(2, 'height');
+    background-color: #E93102;
+    content: "";
+    display: inline-table;
+    vertical-align: middle;
+  }
+}

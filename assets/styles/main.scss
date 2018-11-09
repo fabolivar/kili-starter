@@ -1,0 +1,25 @@
+//Settings
+@import "settings/colors";
+@import "settings/variables";
+@import "core/functions";
+
+//Reset
+@import "core/normalize";
+
+//mixins
+@import "mixins/main";
+
+//core styles
+@import "core/fonts";
+@import "core/core";
+@import "core/placeholders";
+@import "core/typography";
+@import "core/layout";
+@import "core/grid";
+
+//modules, the real css that you write everyday based on the design
+@import "modules/page";
+
+//Helpers
+@import "helpers/visibility";
+@import "helpers/helpers";

@@ -1,0 +1,18 @@
+.container {
+  @include rem(1120, 'max-width');
+  @include rem(10, 'padding-right');
+  @include rem(40, 'padding-left');
+  margin: 0 auto;
+  position: relative;
+  @media #{$medium-up} {
+  	padding: 0 $base-spacing-unit;
+  }
+  &--alternative {
+    @include rem(1200, 'max-width');
+  }
+  .container {
+    @media #{$small-max} {
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "kili",
+  "version": "1.0.0",
+  "author": "Fabian Altahona <fabian.altahona@koombea.com>",
+  "homepage": "https://www.altahona.co",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "scripts": {
+    "dev": "webpack --watch",
+    "build": "webpack --env.production"
+  },
+  "engines": {
+    "node": ">= 4.5"
+  },
+  "devDependencies": {
+    "asset-builder": "^1.1.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "~2.24.6",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "caniuse-lite": "^1.0.30000697",
+    "clean-webpack-plugin": "^0.1.18",
+    "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "imagemin-webpack-plugin": "^1.5.2",
+    "node-sass": "~4.9.3",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
+    "postcss-load-config": "^1.2.0",
+    "postcss-loader": "~2.1.0",
+    "postcss-safe-parser": "^3.0.1",
+    "sass-loader": "^6.0.6",
+    "script-loader": "^0.7.2",
+    "style-loader": "~0.22.1",
+    "uglifyjs-webpack-plugin": "1.1.2",
+    "url-loader": "^0.6.2",
+    "webpack": "~3.10.0",
+    "webpack-assets-manifest": "^1.0.0"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,22 @@
+//Text colors
+$rich-black: #364862 !default;
+
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$pastel-green:           rgba(#D4EDE7, .18) !default;
+$white:                  #FFFFFF;
+$color-text-body:        $rich-black;
+$caribbean-red:          #E93102 !default;
+$body-bg:                $white;
+$hr-border:              $gray-lighter;
+$link-color:             $caribbean-red;
+$link-hover-color:       darken($link-color, 15%);
+
+
+$brand-primary:          $caribbean-red !default;
+$brand-default:          #F3F5FA !default;
+$brand-light:            #E94302;

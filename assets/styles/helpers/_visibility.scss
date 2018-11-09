@@ -1,0 +1,96 @@
+
+.show {
+  display: block !important;
+}
+
+.flexygrid.show {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0 ;
+}
+
+.sr-only-focusable {
+  &:active,
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+  }
+}
+
+.ir {
+  @extend %hide-text;
+}
+
+
+// Mixin to run inside of for loop - creates visibility classes * Not for developer use *
+@mixin vis-factory($thisPrefix) {
+  .#{$thisPrefix}--show {
+    display: block;
+  }
+  .flexygrid.#{$thisPrefix}--show {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .#{$thisPrefix}--hide {
+    display: none;
+  }
+} // Mixin to run inside of for loop - creates visibility classes * Not for developer use *
+
+@for $i from 1 through length($breakpoint-all-prefixes) {
+  $thisPrefix: nth($breakpoint-all-prefixes, $i);
+  @if $thisPrefix == "xsmall" {
+    @include vis-factory($thisPrefix);
+  } @else if $thisPrefix == "xsmall-only" {
+    @media #{$xsmall-only} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "small" {
+    @media #{$small-up} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "small-max" {
+    @media #{$small-max} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "medium" {
+    @media #{$medium-up} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "medium-only" {
+    @media #{$medium-only} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "large" {
+    @media #{$large-up} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "large-only" {
+    @media #{$large-only} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "xlarge" {
+    @media #{$xlarge-up} {
+      @include vis-factory($thisPrefix);
+    }
+  }
+}

@@ -1,0 +1,118 @@
+
+$use-silent-classes:    false !default;
+
+$class-type: if($use-silent-classes, unquote("%"), unquote("."));
+
+
+#{$class-type}flexygrid {
+  @include flexygrid();
+}
+
+#{$class-type}flexygrid--reverse {
+  @include flexygrid--reverse();
+}
+
+#{$class-type}flexygrid--natural-height {
+  @include flexygrid--natural-height();
+}
+
+#{$class-type}flexygrid--flex-column {
+  @include flexygrid--flex-column();
+}
+
+#{$class-type}flexygrid--around {
+  justify-content: space-around;
+}
+
+#{$class-type}flexygrid--between {
+  justify-content: space-between;
+}
+
+.flexygrid__item {
+  @include flexygrid__item();
+}
+
+.flexygrid__item.reverse {
+  @include flexygrid__item--reverse();
+}
+
+// Mixin to run inside of for loop - creates col/breakpoint classes * Not for developer use *
+@mixin col-factory($thisPrefix) {
+  .#{$thisPrefix}--col {
+    box-sizing: border-box;
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+    padding-left: $gutter;
+  }
+  @for $i from 1 through $grid-columns {
+    #{$class-type}#{$thisPrefix}--col-#{$i} {
+      box-sizing: border-box;
+      flex-basis: 100% / $grid-columns * $i;
+      max-width: 100% / $grid-columns * $i;
+      padding-left: $gutter;
+    }
+    #{$class-type}#{$thisPrefix}--col-offset-#{$i} {
+      margin-left: 100% / $grid-columns * $i;
+    }
+  }
+  .flexygrid.#{$thisPrefix}--start {
+    justify-content: flex-start;
+  }
+  .flexygrid.#{$thisPrefix}--center {
+    justify-content: center;
+  }
+  .flexygrid.#{$thisPrefix}--end {
+    justify-content: flex-end;
+  }
+  .flexygrid.#{$thisPrefix}--top {
+    align-items: flex-start;
+  }
+  .flexygrid.#{$thisPrefix}--middle {
+    align-items: center;
+  }
+  .flexygrid.#{$thisPrefix}--bottom {
+    align-items: flex-end;
+  }
+  .flexygrid.#{$thisPrefix}--around {
+    justify-content: space-around;
+  }
+  .flexygrid.#{$thisPrefix}--between {
+    justify-content: space-between;
+  }
+  .#{$thisPrefix}--first {
+    order: -1;
+  }
+  .#{$thisPrefix}--last {
+    order: 1;
+  }
+} // Mixin to run inside of for loop - creates col/breakpoint classes
+
+@for $i from 1 through length($breakpoint-up-prefixes) {
+  $thisPrefix: nth($breakpoint-up-prefixes, $i);
+  @if $thisPrefix == "xsmall" {
+    @include col-factory($thisPrefix);
+  } @else if $thisPrefix == "small" {
+    @media #{$small-up} {
+      @include col-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "medium" {
+    @media #{$medium-up} {
+      @include col-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "large" {
+    @media #{$large-up} {
+      @include col-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "xlarge" {
+    @media #{$xlarge-up} {
+      @include col-factory($thisPrefix);
+    }
+  }
+}
+
+#{$class-type}flexygrid--full {
+  > #{$class-type}flexygrid__item {
+    padding-left:0;
+  }
+}
